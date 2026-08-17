@@ -7,24 +7,33 @@
     <link rel="stylesheet" href="/css/outputStyles.css">
 </head>
 <body class="p-4">
-    <h1 class="mb-4">Inventory</h1>
+    <h1 class="text-[1.5rem] font-semibold mb-4">Inventory</h1>
 
-    <div class="inventory-div">    
-        <% data.map((slot, index) => { %>
+    <div class="inventory-div">
+        <% Array.from({ length: 36 }).map((_, index) => { %>
+            <% const relevantSlot = data.find(slot => slot.slotID === (index + 1)) %>
+
             <div class="slot-div">
-                <% if (slot.itemName !== null) { %>
+                
+                <% if (relevantSlot && relevantSlot.itemName !== null) { %>
+
                     <div class="flex flex-col items-center gap-1">
-                        <a class="green-link" href="/edit-slot/<%= slot.slotID %>"><%= slot.slotID %></a>
-                        <span><%= slot.amount %> <%= slot.itemName.toLocaleUpperCase() %></span>
+                        <a class="green-link" href="/edit-slot/<%= relevantSlot.slotID %>"><%= relevantSlot.slotID %></a>
+                        <span class="text-[0.75rem]"><%= relevantSlot.amount %> <%= relevantSlot.itemName.toLocaleUpperCase() %></span>
                     </div>
+                    
                 <% } else { %>
+
                     <div class="flex flex-col items-center gap-1">
-                        <a class="red-link" href="/edit-slot/<%= slot.slotID %>"><%= slot.slotID %></a>
-                        <span>EMPTY</span>
+                        <a class="red-link" href="/edit-slot/<%= (index + 1) %>"><%= (index + 1) %></a>
+                        <span class="text-[0.75rem]">EMPTY</span>
                     </div>
+                
                 <% } %>
+                 
             </div>
-        <% }) %>
+        <% }) %>  
     </div>
+
 </body>
 </html>

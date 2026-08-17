@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/outputStyles.css">
 </head>
-<body class="p-4">
+<body class="p-4 flex flex-col gap-2">
     <h1 class="text-[1.5rem] font-semibold">Edit Slot</h1>
 
     <form class="p-4 border max-w-[15rem]" action="/edit-slot/<%= slotID %>" method="POST">
@@ -24,7 +24,11 @@
             <input class="border" name="amount" type="number" placeholder="E.g. 64"  min="0" max="64">
         </div>
 
-        <button class="text-[0.75rem] border px-4 mt-4" type="submit">Add Item</button>
+        <button class="w-full text-[0.75rem] border px-4 mt-4" type="submit">Add Item</button>
+    </form>
+
+    <form class="px-4 py-2 border max-w-[15rem]" action="/delete-slot-item/<%= slotID %>" method="POST">
+        <button class="w-full text-[0.75rem] border px-4 border border-red-500 text-red-500">Delete Item</button>
     </form>
 
     <a class="text-blue-500 underline" href="/">Return to Inventory</a>
