@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/outputStyles.css">
+</head>
+<body class="p-4">
+    <h1 class="text-[1.5rem] font-semibold">Edit Slot</h1>
+
+    <form class="p-4 border max-w-[15rem]" action="/edit-slot/<%= slotID %>" method="POST">
+        <div class="flex justify-between">
+            <label for="">Select a Block Type:</label>
+            <select name="blockType" id="">
+                <option value="dirt">Dirt</option>
+                <option value="stone">Stone</option>
+                <option value="sand">Sand</option>
+            </select>
+        </div>
+
+        <div class="flex justify-between">
+            <label for="">Amount</label>
+            <input class="border" name="amount" type="number" placeholder="E.g. 64"  min="0" max="64">
+        </div>
+
+        <button class="text-[0.75rem] border px-4 mt-4" type="submit">Add Item</button>
+    </form>
+
+    <a class="text-blue-500 underline" href="/">Return to Inventory</a>
+</body>
+</html>
