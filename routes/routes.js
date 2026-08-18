@@ -4,6 +4,10 @@ const router = express.Router();
 import mockData from "../models/mockData.js";
 import mockDatav2 from "../models/mockDatav2.js";
 
+import * as controller from "../controllers/controllers.js";
+
+router.get("/controller-test", controller.testMiddleware);
+
 router.get("/", (req, res) => {
     res.render("inventory", { data: mockDatav2 });
 })
